@@ -5,6 +5,8 @@
  */
 package tarea1;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author albertocastro
@@ -14,8 +16,15 @@ public class Vista1 extends javax.swing.JFrame {
     /**
      * Creates new form Vista1
      */
+    DefaultListModel modeloLista = new DefaultListModel();
+
     public Vista1() {
         initComponents();
+        lstMeses.setModel(modeloLista);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("BIENVENIDOS");
+
     }
 
     /**
@@ -41,8 +50,9 @@ public class Vista1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         optTri4 = new javax.swing.JRadioButton();
         etiMes = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lstMeses = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstMeses = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,9 +124,14 @@ public class Vista1 extends javax.swing.JFrame {
 
         etiMes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lstMeses.setColumns(20);
-        lstMeses.setRows(5);
-        jScrollPane1.setViewportView(lstMeses);
+        jScrollPane2.setViewportView(lstMeses);
+
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,60 +139,65 @@ public class Vista1 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnRellenar)
-                                    .addComponent(btnVaciar))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnVaciar)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel1)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(optTri4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(10, 10, 10))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(optTri2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(optTri3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(optTri1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                        .addGap(0, 34, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(optTri4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(optTri2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(optTri3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(optTri1, javax.swing.GroupLayout.Alignment.TRAILING))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(etiMes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(etiMes, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(36, 36, 36)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnRellenar)
+                                .addGap(6, 6, 6)
+                                .addComponent(btnVaciar))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(optTri1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(optTri2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(optTri3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnRellenar)
-                                .addGap(6, 6, 6)
-                                .addComponent(btnVaciar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(optTri4)))
-                .addGap(12, 12, 12)
+                                .addComponent(optTri3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(optTri4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2)))
+                .addGap(18, 18, 18)
                 .addComponent(etiMes, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -194,21 +214,21 @@ public class Vista1 extends javax.swing.JFrame {
 
     private void optTri2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optTri2ActionPerformed
         // TODO add your handling code here:
- if (optTri2.isSelected() == true) {
+        if (optTri2.isSelected() == true) {
             etiMes.setText("Usted ha seleccionado el trimestre 2");
         }
     }//GEN-LAST:event_optTri2ActionPerformed
 
     private void optTri3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optTri3ActionPerformed
         // TODO add your handling code here:
-         if (optTri3.isSelected() == true) {
+        if (optTri3.isSelected() == true) {
             etiMes.setText("Usted ha seleccionado el trimestre 3");
         }
     }//GEN-LAST:event_optTri3ActionPerformed
 
     private void optTri4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optTri4ActionPerformed
         // TODO add your handling code here:
-         if (optTri4.isSelected() == true) {
+        if (optTri4.isSelected() == true) {
             etiMes.setText("Usted ha seleccionado el trimestre 4");
         }
     }//GEN-LAST:event_optTri4ActionPerformed
@@ -217,17 +237,30 @@ public class Vista1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         //optTri1
         if (optTri1.isSelected() == true) {
-            lstMeses.setText("TRIMESTRE 1:\nEnero \nFebrero \nMarzo");
+            //lstMesess.
+            modeloLista.addElement("Enero");
+            modeloLista.addElement("Febrero");
+            modeloLista.addElement("Marzo");
+           
         } else {
             if (optTri2.isSelected() == true) {
-                lstMeses.setText("TRIMESTRE 2:\nAbril \nMayo \nJunio");
+                modeloLista.addElement("Abril");
+                modeloLista.addElement("Mayo");
+                modeloLista.addElement("Junio");
+               
             } else {
                 if (optTri3.isSelected() == true) {
-                    lstMeses.setText("TRIMESTRE 3:\nJulio \nAgosto \nSeptiembre");
-                }else{
-                if (optTri4.isSelected() == true) {
-                    lstMeses.setText("TRIMESTRE 4:\nOctubre \nNoviembre \nDiciembre");
-                }
+                    modeloLista.addElement("Julio");
+                    modeloLista.addElement("Agosto");
+                    modeloLista.addElement("Septiembre");
+                   
+                } else {
+                    if (optTri4.isSelected() == true) {
+                        modeloLista.addElement("Octubre");
+                        modeloLista.addElement("Noviembre");
+                        modeloLista.addElement("Diciembre");
+                        
+                    }
                 }
             }
         }
@@ -253,8 +286,14 @@ public class Vista1 extends javax.swing.JFrame {
 
     private void btnVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVaciarActionPerformed
         // TODO add your handling code here:
-        lstMeses.setText(null);
+       
         etiMes.setText(null);
+        optTri1.setSelected(false);
+        optTri2.setSelected(false);
+        optTri3.setSelected(false);
+        optTri4.setSelected(false);
+         //lstMesess.setModel(null);
+          modeloLista.clear();
 
     }//GEN-LAST:event_btnVaciarActionPerformed
 
@@ -264,6 +303,7 @@ public class Vista1 extends javax.swing.JFrame {
             optTri1.setSelected(false);
             optTri2.setSelected(false);
             optTri4.setSelected(false);
+            
         }
     }//GEN-LAST:event_optTri3MouseClicked
 
@@ -275,6 +315,11 @@ public class Vista1 extends javax.swing.JFrame {
             optTri3.setSelected(false);
         }
     }//GEN-LAST:event_optTri4MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,10 +365,11 @@ public class Vista1 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JLabel etiMes;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea lstMeses;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> lstMeses;
     private javax.swing.JRadioButton optTri1;
     private javax.swing.JRadioButton optTri2;
     private javax.swing.JRadioButton optTri3;
